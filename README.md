@@ -14,4 +14,4 @@ to:
 * Run Zapr against the running web application
 
 For your own usage you would likely replace Railsgoat with your own web
-application under test.
+application.
