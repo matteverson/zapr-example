@@ -1,11 +1,11 @@
 [![Build
-Status](https://travis-ci.org/garethr/zapr-example.svg)](https://travis-ci.org/garethr/zapr-example)
+Status](https://travis-ci.org/matteverson/zapr-example.svg)](https://travis-ci.org/matteverson/zapr-example)
 
-An example of using [Zapr](https://github.com/garethr/zapr) to test a
+An example of using [Zapr](https://github.com/matteverson/zapr) to test a
 vulnerable web application, in this case
 [Railsgoat](https://github.com/OWASP/railsgoat) from OWASP.
 
-The example uses [Travis](https://travis-ci.org/garethr/zapr-example)
+The example uses [Travis](https://travis-ci.org/matteverson/zapr-example)
 to:
 
 * Install [OWASP
