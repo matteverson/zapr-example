@@ -5,10 +5,11 @@ before_install:
   - wget https://github.com/zaproxy/zaproxy/releases/download/2.4.3/ZAP_2.4.3_Core.tar.gz
   - tar -xvf ZAP_2.4.3_Core.tar.gz
   - git submodule update --init --recursive
+  - pip install --user zapcli
 before_script:
   - pushd vendor/railsgoat
   - bundle exec rake db:setup
   - bundle exec rails server -d
   - popd
 script:
-  - zapr --summary --debug --zap-path $TRAVIS_BUILD_DIR/ZAP_2.4.3/zap.sh http://localhost:3000/
+  - zap-cli quick-scan -v --self-contained --spider -r -s xss -o '-config api.disablekey=true' --zap-path $TRAVIS_BUILD_DIR/ZAP_2.4.3/zap.sh http://localhost:3000/
