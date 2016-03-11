@@ -13,5 +13,6 @@ before_script:
   - bundle exec rake db:setup
   - bundle exec rails server -d
   - popd
+  - curl http://localhost:3000
 script:
   - docker run -u zap -i owasp/zap2docker-stable zap-cli quick-scan --self-contained -o "-config api.disablekey=true" -s xss,sqli --spider http://localhost:3000/
