@@ -12,4 +12,4 @@ before_script:
   - bundle exec rails server -d
   - popd
 script:
-  - zap-cli quick-scan -v --self-contained --spider -r -s xss -o '-config api.disablekey=true' --zap-path $TRAVIS_BUILD_DIR/ZAP_2.4.3/zap.sh http://localhost:3000/
+  - zap-cli quick-scan -v --self-contained --spider -r -s xss -o '-config api.disablekey=true' --zap-path $TRAVIS_BUILD_DIR/ZAP_2.4.3 http://localhost:3000/
