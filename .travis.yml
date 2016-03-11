@@ -6,6 +6,7 @@ services:
 before_install:
   - git submodule update --init --recursive
   - rvm rvmrc warning ignore /home/travis/build/matteverson/zapr-example/vendor/railsgoat/.rvmrc
+  - rvm rvmrc untrust /home/travis/build/matteverson/zapr-example/vendor/railsgoat/.rvmrc
   - pip install --user zapcli
 before_script:
   - pushd vendor/railsgoat
