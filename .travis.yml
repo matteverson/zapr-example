@@ -1,9 +1,9 @@
 language: ruby
 rvm:
   - 2.0.0
+services:
+  - docker
 before_install:
-  - wget https://github.com/zaproxy/zaproxy/releases/download/2.4.3/ZAP_2.4.3_Core.tar.gz
-  - tar -xvf ZAP_2.4.3_Core.tar.gz
   - git submodule update --init --recursive
   - pip install --user zapcli
 before_script:
@@ -12,4 +12,5 @@ before_script:
   - bundle exec rails server -d
   - popd
 script:
-  - zap-cli quick-scan -v --self-contained --spider -r -s xss -o '-config api.disablekey=true' --zap-path $TRAVIS_BUILD_DIR/ZAP_2.4.3 http://localhost:3000/
+  - docker run -u zap -i owasp/zap2docker-stable zap-cli quick-scan -sc \
+    -o '-config api.disablekey=true' -s xss,sqli --spider http://localhost:3000/
